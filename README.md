@@ -2,4 +2,4 @@
 
 ## About Home Delivery Service
 
-Home-Services-Delivery with Laravel 8
+Home Services Delivery with Laravel 8
