@@ -68,7 +68,7 @@
                                                         <option value="{{ $category->id }}">{{ $category->name }}</option>
                                                     @endforeach
                                                 </select>
-                                                @error('slug') <p class="text-danger">{{ $message }}</p> @enderror
+                                                @error('service_category_id') <p class="text-danger">{{ $message }}</p> @enderror
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -86,7 +86,7 @@
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="slug" class="control-label col-sm-3">Discount: </label>
+                                            <label for="slug" class="control-label col-sm-3">Discount Type: </label>
                                             <div class="col-sm-9">
                                                 <select class="form-group" wire:model="discount_type">
                                                     <option value="">Select Service Category</Select></option>

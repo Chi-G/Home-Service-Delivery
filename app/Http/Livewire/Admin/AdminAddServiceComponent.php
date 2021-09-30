@@ -71,16 +71,16 @@ class AdminAddServiceComponent extends Component
         $service->discount = $this->discount;
         $service->discount_type = $this->discount_type;
         $service->description = $this->description;
-        $service->inclusion = str_replace("\n", '|' , trim('$this->inclusion'));
-        $service->exclusion = str_replace("\n", '|' , trim('$this->exclusion'));
+        $service->inclusion = str_replace("\n", '|' , trim($this->inclusion));
+        $service->exclusion = str_replace("\n", '|' , trim($this->exclusion));
 
-        $imageName = Carbon::now()->timestamp. '.' . $this->thumbnail->extension();
+        $imageName = Carbon::now()->timestamp . '.' . $this->thumbnail->extension();
         $this->image->storeAs('services/thumbnails', $imageName);
         $service->image = $imageName;
 
-        $imageName2 = Carbon::now()->timestamp. '.' . $this->image->extension();
+        $imageName2 = Carbon::now()->timestamp . '.' . $this->image->extension();
         $this->image->storeAs('services', $imageName2);
-        $service->image = $imageName;
+        $service->image = $imageName2;
 
         $service->save();
         session()->flash('message', 'Service has been created successfully!');

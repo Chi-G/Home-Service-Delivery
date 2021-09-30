@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Livewire\Admin\AdminAddServiceCategoryComponent;
-use App\Http\Livewire\Admin\AdminAddServiceComponent;
 use App\Http\Livewire\Admin\AdminDashboardComponent;
 use App\Http\Livewire\Admin\AdminEditServiceCategoryComponent;
 use App\Http\Livewire\Admin\AdminServiceCategoryComponent;
@@ -11,6 +10,9 @@ use App\Http\Livewire\ServiceCategoriesComponent;
 use App\Http\Livewire\ServicesByCategoryComponent;
 use App\Http\Livewire\Sprovider\SproviderDashboardComponent;
 use Illuminate\Support\Facades\Route;
+use App\Http\Livewire\Admin\AdminAddServiceComponent;
+use App\Http\Livewire\Admin\AdminServicesComponent;
+use App\Http\Livewire\Admin\AdminServicesByCategoryComponent;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 /*
