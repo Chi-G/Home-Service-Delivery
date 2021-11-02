@@ -3,12 +3,12 @@
         <div class="bg_parallax image_02_parallax"></div>
         <div class="opacy_bg_02">
             <div class="container">
-                <h1>Add Service Category</h1>
+                <h1>Edit Slide</h1>
                 <div class="crumbs">
                     <ul>
                         <li><a href="/">Home</a></li>
                         <li>/</li>
-                        <li>Add Service Category</li>
+                        <li>Edit Slide</li>
                     </ul>
                 </div>
             </div>
@@ -24,10 +24,10 @@
                                 <div class="panel-heading">
                                     <div class="row">
                                         <div class="col-md-6">
-                                            Add new Service Category
+                                            Edit Slide
                                         </div>
                                         <div class="col-md-6">
-                                            <a href="{{ route('admin.service_categories') }}" class="btn btn-info pull-right">All Categories</a>
+                                            <a href="{{ route('admin.slider') }}" class="btn btn-info pull-right">All Slides</a>
                                         </div>
                                     </div>
                                 </div>
@@ -35,35 +35,40 @@
                                     @if (Session::has('message'))
                                         <div class="alert-success" role="alert">{{ Session::get('message') }}</div>
                                     @endif
-                                    <form class="form-horizontal" wire:submit.prevent="createNewCategory">
+                                    <form class="form-horizontal" wire:submit.prevent="updateSlide">
                                         @csrf
                                         &nbsp;
                                         <div class="form-group">
-                                            <label for="name" class="control-label col-sm-3">Category Name: </label>
+                                            <label for="title" class="control-label col-sm-3">Title: </label>
                                             <div class="col-sm-9">
-                                                <input type="text" class="form-control" name="name" wire:model="name" wire:keyup="generateSlug" />
-                                                @error('name') <p class="text-danger">{{ $message }}</p> @enderror
+                                                <input type="text" class="form-control" name="title" wire:model="title" />
+                                                @error('title') <p class="text-danger">{{ $message }}</p> @enderror
                                             </div>
-                                        </div>
+                                        </div>                                        
                                         <div class="form-group">
-                                            <label for="slug" class="control-label col-sm-3">Category Slug: </label>
+                                            <label for="image" class="control-label col-sm-3">Image: </label>
                                             <div class="col-sm-9">
-                                                <input type="text" class="form-control" name="slug" wire:model="slug" />
-                                                @error('slug') <p class="text-danger">{{ $message }}</p> @enderror
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="image" class="control-label col-sm-3">Category Image: </label>
-                                            <div class="col-sm-9">
-                                                <input type="file" class="form-control-file" name="image" wire:model="image" />
-                                                @error('image') <p class="text-danger">{{ $message }}</p> @enderror
-                                                @if ($image)
-                                                    <img src="{{ $image->temporaryUrl() }}" width="60" />
+                                                <input type="file" class="form-control-file" name="newimage" wire:model="newimage" />
+                                                @error('newimage') <p class="text-danger">{{ $message }}</p> @enderror
+                                                @if ($newimage)
+                                                    <img src="{{ $newimage->temporaryUrl() }}" width="60" />
+                                                @else
+                                                <img src="{{asset('images/slider')}}/{{ $image }}" width="60" />
                                                 @endif
                                             </div>
                                         </div>
+                                        <div class="form-group">
+                                            <label for="status" class="control-label col-sm-3">Status: </label>
+                                            <div class="col-sm-9">
+                                                <select class="form-control" name="status" wire:model="status">
+                                                    <option value="1">Active</option>
+                                                    <option value="0">InActive</option>
+                                                </select>
+                                                @error('status') <p class="text-danger">{{ $message }}</p> @enderror
+                                            </div>
+                                        </div>
                                         &nbsp;
-                                            <button type="submit" class="btn btn-success pull-right">Add Category</button>
+                                            <button type="submit" class="btn btn-success pull-right">Update Slide</button>
                                     </form>
                                 </div>
                             </div>

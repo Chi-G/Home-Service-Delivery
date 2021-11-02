@@ -11,12 +11,12 @@
         <div class="bg_parallax image_02_parallax"></div>
         <div class="opacy_bg_02">
             <div class="container">
-                <h1>Service Categories</h1>
+                <h1>Contacts</h1>
                 <div class="crumbs">
                     <ul>
                         <li><a href="/">Home</a></li>
                         <li>/</li>
-                        <li>Service Categories</li>
+                        <li>Contacts</li>
                     </ul>
                 </div>
             </div>
@@ -32,10 +32,10 @@
                                 <div class="panel-heading">
                                     <div class="row">
                                         <div class="col-md-6">
-                                            All Services Categories
+                                            All Contacts
                                         </div>
                                         <div class="col-md-6">
-                                            <a href="{{ route('admin.add_service_category') }}" class="btn btn-info pull-right">Add New</a>
+                                            
                                         </div>
                                     </div>    
                                 </div>
@@ -47,37 +47,27 @@
                                         <thead>
                                             <tr>
                                                 <th>s/n</th>
-                                                <th>Image</th>
                                                 <th>Name</th>
-                                                <th>Slug</th>                                                
-                                                <th>Featured</th>                                                
-                                                <th>Action</th>
+                                                <th>Email</th>
+                                                <th>Phone</th>                                                
+                                                <th>Message</th>                                                
+                                                <th>Created At</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach ($scategories as $scategory)
+                                            @foreach ($contacts as $contact)
                                                 <tr>
-                                                    <td>{{$scategory->id}}</td>
-                                                    <td><img src="{{ asset('images/categories') }}/{{ $scategory->image }}" width="60" /></td>
-                                                    <td>{{ $scategory->name }}</td>
-                                                    <td>{{ $scategory->slug }}</td>
-                                                    <td>
-                                                        @if($scategory->featured)
-                                                            Yes
-                                                        @else
-                                                            No
-                                                        @endif
-                                                    </td>
-                                                    <td>
-                                                        <a href="{{route('admin.services_by_category', ['category_slug'=>$scategory->slug])}}" style="margin-right: 10px;"><i class="fa fa-list fa-2x text-info"></i></a>
-                                                        <a href="{{route('admin.edit_service_category', ['category_id'=>$scategory->id])}}"><i class="fa fa-edit fa-2x text-info"></i></a>
-                                                        <a href="#" onclick="confirm('Are you sure you want to delete this service category?') || event.stopImmediatePropagation()" wire:click.prevent="deleteServiceCategory({{$scategory->id}})" style="margin-left: 10px"><i class="fa fa-times fa-2x text-danger"></i></a>
-                                                    </td>
+                                                    <td>{{$contact->id}}</td>                                                    
+                                                    <td>{{ $contact->name }}</td>
+                                                    <td>{{ $contact->email }}</td>
+                                                    <td>{{ $contact->phone }}</td>
+                                                    <td>{{ $contact->message }}</td>                                                    
+                                                    <td>{{ $contact->created_at }}</td>                                               
                                                 </tr>
                                             @endforeach
                                         </tbody>
                                     </table>
-                                    {{$scategories->links()}}
+                                    {{$contacts->links()}}
                                 </div>
                             </div>                            
                         </div>
