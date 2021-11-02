@@ -75,8 +75,8 @@ class AdminAddServiceComponent extends Component
         $service->exclusion = str_replace("\n", '|' , trim($this->exclusion));
 
         $imageName = Carbon::now()->timestamp . '.' . $this->thumbnail->extension();
-        $this->image->storeAs('services/thumbnails', $imageName);
-        $service->image = $imageName;
+        $this->thumbnail->storeAs('services/thumbnails', $imageName);
+        $service->thumbnail = $imageName;
 
         $imageName2 = Carbon::now()->timestamp . '.' . $this->image->extension();
         $this->image->storeAs('services', $imageName2);
